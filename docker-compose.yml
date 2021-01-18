@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  keycloak_flow:
+    container_name: keycloak_flow
+    image: jboss/keycloak:9.0.2
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8180:8080"
