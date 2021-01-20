@@ -1,6 +1,9 @@
 package com.auth.setup;
 
 
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +14,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/albums")
 public class AlbumResource {
+
     @GetMapping
     public List<AlbumRest> getAlbums() {
 
@@ -30,6 +34,9 @@ public class AlbumResource {
 
         return Arrays.asList(album1, album2);
     }
+    @GetMapping("jwt")
+    public Jwt getToken(@AuthenticationPrincipal Jwt jwt) {
 
-
+        return jwt;
+    }
 }

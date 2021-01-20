@@ -24,9 +24,5 @@ public class AuthResource {
         return restService.login(username, password);
     }
 
-    @GetMapping
-    public Jwt getToken(@AuthenticationPrincipal Jwt jwt) {
 
-        return jwt;
-    }
 }
