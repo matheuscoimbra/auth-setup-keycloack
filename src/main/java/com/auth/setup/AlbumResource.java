@@ -34,6 +34,7 @@ public class AlbumResource {
 
         return Arrays.asList(album1, album2);
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_developer')")
     @GetMapping("jwt")
     public Jwt getToken(@AuthenticationPrincipal Jwt jwt) {
 
